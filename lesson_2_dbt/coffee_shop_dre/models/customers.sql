@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+)  }}
+
 select 
   orders.customer_id as customer_id,
   customers.name as name,
@@ -10,4 +14,4 @@ left join `analytics-engineers-club.coffee_shop.orders` orders
   on customers.id = orders.customer_id -- primary_key = foreign_key --> one-to-man --> fanout
 
 group by 1,2,3
-order by 4;
+order by 4
