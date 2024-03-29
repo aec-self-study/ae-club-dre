@@ -1,0 +1,1 @@
+Hello! My name is Dre, and I am a Business Intelligence Engineer at FlightAware. I am taking this course because I want to grow my skills beyond the visualization aspect of my work and dive deeper into building meaningful data pipelines.
