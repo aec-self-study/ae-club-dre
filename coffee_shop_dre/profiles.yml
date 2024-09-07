@@ -1,0 +1,13 @@
+coffee_shop:
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: 
+      schema: dbt_dre
+      threads: 8
+      timeout_seconds: 300
+      location: US 
+      priority: interactive
+      retries: 1
+    target: dev

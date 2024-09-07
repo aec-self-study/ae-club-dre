@@ -1,0 +1,45 @@
+version: 2
+ 
+models:
+  - name: customers
+    description: '{{ doc("coffee_docs")}}'
+    columns:
+      - name: id
+        description: Primary key of the model
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: email address
+        tests:
+          - email_format
+
+sources:
+  - name: coffee_shop
+    project: analytics-engineers-club      
+
+    tables:
+      - name: customers      
+    
+        description: "customer source"        
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+ 
+      - name: orders
+        freshness:
+          warn_after: 
+            count: 1
+            period: day
+        loaded_at_field: created_at  
+        description: "order source"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: total
+            tests:
+              - zero_check           
